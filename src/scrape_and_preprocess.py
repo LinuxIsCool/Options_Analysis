@@ -5,11 +5,8 @@ from questrade_api import Questrade
 import os
 
 # Ensure working directory path is correct
-if os.getcwd()[-3:] == "src":
+if os.getcwd().endswith("src"):
     os.chdir(os.path.dirname(os.getcwd()))
-else:
-    pass
-
 # User defined parameters
 alphaVan_token = 'U4G0AXZ62E77Z161'
 num_days_year = 252
@@ -32,7 +29,7 @@ except urllib.error.HTTPError:
 
 
 my_ticker = str(input("Ticker you want to scrape data for: ")).upper()
-print("You have selected stock ticker: '" + my_ticker + "'")
+print(f"You have selected stock ticker: '{my_ticker}'")
 
 price = scrape_fun.get_current_price(stock_of_interest=my_ticker,
                                      questrade_instance = q,
