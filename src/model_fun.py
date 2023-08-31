@@ -46,10 +46,8 @@ def div_freq(ex_div_1, ex_div_2, num_days_year):
                                enddates=ex_div_2.date())
     # Quarterly dividends
     if (time_gap > 55) & (time_gap < 75):
-        div_multiplier = 0.25
-    # Annual dividends
+        return 0.25
     elif (time_gap > 240) & (time_gap < 260):
-        div_multiplier = 1
+        return 1
     else:
-        div_multiplier = float(time_gap / num_days_year)
-    return div_multiplier
+        return float(time_gap / num_days_year)

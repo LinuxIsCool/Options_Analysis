@@ -2,11 +2,8 @@ import scrape_fun
 import os
 
 # Ensure working directory path is correct
-if os.getcwd()[-3:] == "src":
+if os.getcwd().endswith("src"):
     os.chdir(os.path.dirname(os.getcwd()))
-else:
-    pass
-
 # User defined parameters
 option_data_path = "data/discount_data/"
 stock_data_path = "data/adjusted_daily_closing/"
@@ -14,7 +11,7 @@ dividend_data_path = "data/dividends/"
 adjusted_options_path = "data/adjusted_options/"
 
 my_ticker = str(input("Ticker you want to aggregate option data for: ")).upper()
-print("You have selected stock ticker: '" + my_ticker + "'")
+print(f"You have selected stock ticker: '{my_ticker}'")
 
 # Aggregating options data for specified ticker
 my_options_df = scrape_fun.hist_option_data(stock_of_interest=my_ticker,

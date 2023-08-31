@@ -155,7 +155,9 @@ def extract_dividends(my_history, stock_of_interest, api_key, num_days_year):
                 # Today should be 1 day after the most recent recorded history
                 end_index = my_history.shape[0]
             else:
-                print("The market was not open on " + str(end_date.date()) + "!  Using business day prior to this!")
+                print(
+                    f"The market was not open on {str(end_date.date())}!  Using business day prior to this!"
+                )
                 temp_date = np.busday_offset(dates=end_date.date(), offsets=-1)
                 end_index = my_history.loc[my_history['date'] == temp_date].index.values.astype(int)[0]
 
